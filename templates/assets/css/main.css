@@ -1,0 +1,279 @@
+body {
+  position: relative;
+  padding: 10px;
+  background: linear-gradient(75deg, #1a1a1a, #272727, #343434);
+}
+
+h1 {
+  font-size: 2em;
+  color: #e6e6e6;
+  background: linear-gradient(180deg, #5a5a5a, #404040, #343434, #272727, black);
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  border-style: solid;
+  border-color: #010101;
+  border-radius: 50px;
+  padding: 10px 0px 10px 0px;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 550px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+p {
+  color: white;
+  font-size: 18px;
+}
+
+
+  
+#home-icon {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+#nav-link-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: auto;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #d9d9d9, silver, #a6a6a6);
+  list-style-type: none;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  z-index: 9001;
+}
+
+.nav-link {
+  white-space: nowrap;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+  height: 20px;
+  width: auto;
+  padding: 5px 15px 5px 15px;
+  margin: 2px 1px 2px 1px;
+  color: #3f73a6;
+}
+
+@media (max-width: 550px) {
+  .nav-link {
+    font-size: 11px;
+    font-weight: none;
+    padding: 2px 12px 2px 12px;
+    margin: 1px 1px 1px 1px;
+  }
+}
+@media (max-width: 450px) {
+  .nav-link {
+    font-size: 9px;
+    font-weight: bold;
+    padding: 1px 9px 1px 9px;
+    margin: 1px 0px 1px 0px;
+  }
+}
+#main {
+  position: relative;
+}
+
+.main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  color: #3399ff;
+  text-align: center;
+  font-weight: bold;
+}
+
+#temp-h2 {
+  text-align: center;
+  font-weight: bold;
+}
+
+/***************************************************************************************************** */
+/*****************************         City Data Fieldset         ****************************** */
+/***************************************************************************************************** */
+#city-sel-h2 {
+  color: #004d99;
+}
+
+#loc-info-div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0;
+  border-radius: 100px;
+  width: 90%;
+}
+
+#loc-info-legend {
+  margin-top: 60px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #004d99;
+}
+
+.loc-info-txt {
+  color: #004d99;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/***************************************************************************************************** */
+/*****************************         Temperature Units Button         ****************************** */
+/***************************************************************************************************** */
+#units-img {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+#units-btn {
+  pointer-events: auto;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(180deg, #b399ff, #6633ff);
+  background-size: 100% 150%;
+  background-position: center top;
+  width: 50px;
+  height: 50px;
+  box-shadow: 3px 3px 4px 0 #0d0d0d;
+  animation-name: btnUnhover;
+  animation-fill-mode: forwards;
+  animation-duration: 0.7s;
+  border-style: solid;
+  border-color: #794dff;
+}
+#units-btn:hover {
+  animation-name: btnHover;
+}
+#units-btn:active {
+  animation-name: btnPress;
+}
+@keyframes btnHover {
+  100% {
+    background-position: center bottom;
+  }
+}
+@keyframes btnUnhover {
+  0% {
+    background-position: center bottom;
+  }
+  100% {
+    background-position: center top;
+  }
+}
+@keyframes btnPress {
+  to {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 2px 0 #c6b3ff;
+    background-position: center;
+  }
+}
+
+/***************************************************************************************************** */
+/******************************         City Selection Section        ******************************** */
+/***************************************************************************************************** */
+#cityDropDown {
+  width: 350px;
+}
+
+#city-h2 {
+  color: #004d99;
+}
+
+#City_Selection {
+  pointer-events: auto;
+  position: relative;
+  background: linear-gradient(180deg, #e6e6e6, gray);
+  border-radius: 50px;
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+  padding-bottom: 50px;
+}
+
+#City_Selection:before {
+  pointer-events: none;
+  content: "";
+  opacity: 0.3;
+  display: block;
+  background-image: url("https://www.fotolip.com/wp-content/uploads/2017/03/metal-texture.jpg");
+  position: absolute;
+  border-radius: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/***************************************************************************************************** */
+/*****************************         Infographic Units Button         ****************************** */
+/***************************************************************************************************** */
+.info-h2 {
+  color: #004d99;
+}
+
+.infographic {
+  pointer-events: auto;
+  position: relative;
+  background: linear-gradient(180deg, #e6e6e6, gray);
+  border-radius: 50px;
+  height: 500px;
+  width: 100%;
+  padding: 0;
+  margin: 90px 0px 90px 0px;
+  border-color: white;
+}
+
+.infographic:before {
+  pointer-events: none;
+  content: "";
+  opacity: 0.2;
+  display: block;
+  background-image: url("https://www.fotolip.com/wp-content/uploads/2017/03/metal-texture.jpg");
+  position: absolute;
+  border-radius: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#infographic-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0.3;
+  border-radius: 50px;
+  height: 100%;
+  width: 100%;
+}
+
+#References {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

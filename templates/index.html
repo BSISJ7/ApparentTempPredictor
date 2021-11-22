@@ -1,0 +1,120 @@
+<html>
+  <head>
+    <tile>Apparent Temperature Predictor</title>
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+  </head>
+
+  <body id="Home">
+    <!--Nav And Home-->
+    <br><br>
+    <header id="nav-header">
+      <nav id="nav-bar">
+        <ul id="nav-link-container">
+          <li><a class="nav-link" href="#Home"><img id="home-icon" src="https://cdn1.iconfinder.com/data/icons/office-292/128/_Building_home_house-08-128.png"></a></li>
+          <li><a class="nav-link" href="#City_Selection">City Selection</a></li>
+          <li><a class="nav-link" href="#Temperature_Units">Temperature Units</a></li>
+          <li><a class="nav-link" href="#Scatter_Plot">Scatter Plot</a></li>
+          <li><a class="nav-link" href="#Heat_Map">Heat Map</a></li>
+          <li><a class="nav-link" href="#Bar_Chart">Bar Chart</a></li>
+          <li><a class="nav-link" href="#Temperature_Warnings">Temperature Warnings</a></li>
+          <li><a class="nav-link" href="#References">References</a></li>
+        </ul>      
+      </nav>
+      <section id="Introduction">
+        <h1>Apparent Temperature Predictor</h1>
+        <p>This app allows you to select a city to see both the predicted apparent temperature and weather data for that location over the next 48 hours.  Simply select your desired temperature units, pick a city, and take a look at the newly generated predicts below.</p>
+      </section>
+    </header>
+    <br><hr/><br>
+
+    <!--Main Content-->
+    <main id="main">
+      <section id="Temperature_Units" class="main-section">
+        <header><h2 id="temp-h2">Temperature Units</h2></header>
+        <button id="units-btn" onclick="swapTempUnits()"><img id="units-img" src="https://cdn3.iconfinder.com/data/icons/aami-web-internet/64/aami9-50-128.png"></button>
+        <!--       <button id="units-btn" onclick="swapTempUnits()"></button> -->
+        <!--https://cdn3.iconfinder.com/data/icons/aami-web-internet/64/aami9-49-128.png -->
+      </section>
+      <br><br><br>
+
+      <section id="City_Selection" class="main-section">
+        <header><h2 id="city-sel-h2">City Selection</h2></header>
+        <div id='cityList' class='center'> </div>
+        <select id='cityDropDown' name=cityList method="GET" action="/" onchange="citySelected()">
+          {% for city in cityList %}
+          <option value = "{{city}}" SELECTED>{{city}}</option>"
+          {% endfor %}
+        </select>
+
+        <fieldset id="loc-info-div">
+          <legend id="loc-info-legend">Location Information</legend>
+          <p class="loc-info-txt">Country: </p>
+          <p class="loc-info-txt">Latitude: </p>
+          <p id="longitude-info" class="loc-info-txt">Longitude: </p>
+        </fieldset>
+
+        <script type='text/javascript'>
+          $('cityDropDown').attr('selectedIndex', 0);
+        </script>
+      </section>
+      <br><hr/><br>
+
+      <section id="Scatter_Plot" class="main-section infographic">
+        <!--       <img id="infographic-img" src="https://www.fotolip.com/wp-content/uploads/2017/03/metal-texture.jpg"> -->
+        <header><h2 class="info-h2">Scatter Plot</h2></header>
+        <div id='scatterGraph' class='chart'”></div>
+        <script type='text/javascript'>
+          var scatterGraph = {{scatterGraph | safe}};
+          Plotly.plot('scatterGraph',scatterGraph,{});
+        </script>
+      </section>
+
+      <section id="Heat_Map" class="main-section infographic">
+        <!--       <img id="infographic-img" src="https://www.fotolip.com/wp-content/uploads/2017/03/metal-texture.jpg"> -->
+        <header><h2 class="info-h2">Heat Map</h2></header>
+        <div id='parallelGraph' class='chart'”></div>
+        <script type='text/javascript'>
+          var parallelGraph = {{parallelGraph | safe}};
+          Plotly.plot('parallelGraph',parallelGraph,{});
+        </script>
+      </section>
+
+      <section id="Bar_Chart" class="main-section infographic">
+        <!--       <img id="infographic-img" src="https://www.fotolip.com/wp-content/uploads/2017/03/metal-texture.jpg"> -->
+        <header><h2 class="info-h2">Bar Chart</h2></header>
+        <div id='barGraph' class='chart'”> </div>
+        <script type='text/javascript'>
+          var barGraph = {{barGraph | safe}};
+          Plotly.plot('barGraph',barGraph,{});
+        </script>
+      </section>
+
+
+      <section id="Temperature_Warnings" class="main-section">
+        <header><h2>Temperature Warnings</h2></header>
+      </section>
+    </main>
+
+    <br><hr/><br>
+
+    <footer id="footer">
+      <section id="References">
+        <header>
+          <h2>Citations</h2>
+        </header>
+
+        <p>Weather API Data From <a href="https://www.wunderground.com/">Weather Underground</a></p>
+        <p>Icons From <a href="https://www.flaticon.com/free-icons">Flat Icon</a> and <a href="https://www.iconfinder.com/">Icon Finder</a></p>
+        <p>Background Images From <a href="https://www.fotolip.com/wp-content/">Foto Lip</a> and <a href="https://wallup.net/">Wallup</a></p>
+
+      </section>
+    </footer>
+
+    <!--Scripts-->
+    <script src="assets/js/main.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="jquery-csv.js"></script>
+  </body>
+</html>

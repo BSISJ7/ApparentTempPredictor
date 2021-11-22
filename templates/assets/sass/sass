@@ -1,0 +1,287 @@
+$header-font-color: hsl(210, 100%, 60%)
+$header-font-color-dark: darken($header-font-color, 30%)
+$header-font-color-light: lighten($header-font-color, 25%)
+$txt-font-color: hsl(210, 100%, 50%)
+$txt-font-color-dark: darken(hsl(210, 100%, 50%), 20%)
+
+body
+  position: relative
+  padding: 10px
+  background: linear-gradient(75deg, darken(gray, 40%), darken(gray, 35%), darken(gray, 30%))
+// body:before
+  // pointer-events: none
+  // content: ''
+  // opacity: .2
+  // display: block
+  // background-image: url("https://wallup.net/wp-content/uploads/2018/09/26/304675-abstract-black-patterns.jpg")
+  // background-repeat: repeat-y
+  // position: absolute
+  // left: 0
+  // top: 0
+  // width: 100%
+  // height: 100%
+  
+h1
+  font-size: 2em
+  color: darken(white, 10%)
+  // background: radial-gradient(20em, darken(gray, 45%), darken(gray, 30%), darken(gray, 15%))
+  background: linear-gradient(180deg, darken(gray, 15%), darken(gray, 25%), darken(gray, 30%), darken(gray, 35%), darken(gray, 55%))
+  font-weight: bold
+  width: 100%
+  text-align: center
+  border-style: solid
+  border-color: darken(gray, 50%)
+  border-radius: 50px
+  padding: 10px 0px 10px 0px
+  background-repeat: no-repeat
+  
+@media(max-width: 550px)
+  h1
+    font-size: 20px
+    
+p
+  color: white
+  font-size: 18px
+
+#nav-link-container
+  position: fixed
+  top: 0
+  left: 0
+  height: auto
+  width: 100%
+  margin: 0
+  padding: 0
+  // background: radial-gradient(lighten(gray, 40%), lighten(gray, 30%), lighten(gray, 20%))
+  background: linear-gradient(180deg, lighten(gray, 35%), lighten(gray, 25%), lighten(gray, 15%))
+  list-style-type: none
+  box-sizing: border-box
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  flex-wrap: wrap
+  z-index: 9001
+  
+  
+.nav-link
+  white-space: nowrap
+  text-align: center
+  text-decoration: none
+  font-weight: bold
+  display: block
+  height: 20px
+  width: auto
+  padding: 5px 15px 5px 15px
+  margin: 2px 1px 2px 1px
+  // background: radial-gradient(lighten(gray, 40%), lighten(gray, 30%), lighten(gray, 20%))
+  // background: linear-gradient(180deg, lighten(gray, 40%), lighten(gray, 30%), lighten(gray, 20%))
+  // border-color: lighten(gray, 10%)
+  // border-style: ridge
+  // border-radius: 5px
+  color: hsl(210, 45%, 45%)
+
+@media(max-width: 550px)
+  .nav-link
+    font-size: 11px
+    font-weight: none
+    padding: 2px 12px 2px 12px
+    margin: 1px 1px 1px 1px
+
+@media(max-width: 450px)
+  .nav-link
+    font-size: 9px
+    font-weight: bold
+    padding: 1px 9px 1px 9px
+    margin: 1px 0px 1px 0px
+
+#main
+  position: relative
+    
+.main-section
+  display: flex
+  flex-direction: column
+  align-items: center
+    
+h2
+  color: $header-font-color
+  text-align: center
+  font-weight: bold
+  
+#temp-h2
+  text-align: center
+  font-weight: bold
+  
+  
+  
+  
+  
+  
+  
+/*****************************************************************************************************
+/*****************************         City Data Fieldset         ******************************
+/*****************************************************************************************************
+#city-sel-h2
+  color: $header-font-color-dark
+  
+#loc-info-div
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  margin: 0
+  border-radius: 100px
+  width: 90%
+  
+#loc-info-legend
+  margin-top: 60px
+  font-size: 25px
+  font-weight: bold
+  color: $header-font-color-dark
+  
+.loc-info-txt
+  color: $txt-font-color-dark
+  font-size: 20px
+  font-weight: bold
+  
+  
+/*****************************************************************************************************
+/*****************************         Temperature Units Button         ******************************
+/*****************************************************************************************************
+#units-img
+  pointer-events: none
+  position: absolute
+  top: 0
+  left: 0
+  background-size: cover
+  width: 100%
+  height: 100%
+  z-index: 2
+  
+
+$bg-start-color: hsl(255, 100%, 80%, 1)
+$border-start-color: hsl(255, 100%, 65%, 1)
+$bg-end-color: hsl(255, 100%, 65%, 1)
+$border-end-color: hsl(255, 100%, 80%, 1)
+#units-btn
+  pointer-events: auto
+  position: relative
+  z-index: 1
+  background: linear-gradient(180deg, $bg-start-color, darken($bg-start-color, 20%))
+  background-size: 100% 150%
+  background-position: center top
+  width: 50px
+  height: 50px
+  box-shadow: 3px 3px 4px 0 lighten(black, 5%)
+  animation-name: btnUnhover
+  animation-fill-mode: forwards
+  animation-duration: .7s
+  border-style: solid
+  border-color: $border-start-color
+  &:hover
+    animation-name: btnHover
+  &:active
+    animation-name: btnPress
+  
+  @keyframes btnHover
+    100%
+      background-position: center bottom
+      
+  @keyframes btnUnhover
+    0%
+      background-position: center bottom
+    100%
+      background-position: center top
+      
+      
+  @keyframes btnPress
+    to
+      transform: translate(1px, 1px)
+      box-shadow: 2px 2px 2px 0 lighten($border-start-color, 20%)
+      background-position: center
+    
+      
+      
+      
+      
+      
+/*****************************************************************************************************
+/******************************         City Selection Section        ********************************
+/*****************************************************************************************************
+#cityDropDown
+  width: 350px
+
+#city-h2
+  color: $header-font-color-dark
+  
+#City_Selection
+  pointer-events: auto
+  position: relative
+  // background: radial-gradient(20px, lighten(gray, 10%), lighten(gray, 15%), lighten(gray, 20%))
+  background: linear-gradient(180deg, lighten(gray, 40%), lighten(gray, 0%))
+  border-radius: 50px
+  width: 100%
+  height: 100%
+  padding-bottom: 50px
+#City_Selection:before
+  pointer-events: none
+  content: ''
+  opacity: .3
+  display: block
+  background-image: url("https://www.fotolip.com/wp-content/uploads/2017/03/metal-texture.jpg")
+  position: absolute
+  border-radius: 50px
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  
+  
+  
+
+  
+  
+/*****************************************************************************************************
+/*****************************         Infographic Units Button         ******************************
+/*****************************************************************************************************
+.info-h2
+  color: $header-font-color-dark
+  
+  
+.infographic
+  pointer-events: auto
+  position: relative
+  background: linear-gradient(180deg, lighten(gray, 40%), lighten(gray, 0%))
+  border-radius: 50px
+  height: 500px
+  width: 100%
+  padding: 0
+  margin: 90px 0px 90px 0px
+  // box-shadow: 3px 3px 4px 0 darken(White, 10%)
+  border-color: white
+.infographic:before
+  pointer-events: none
+  content: ''
+  opacity: .2
+  display: block
+  background-image: url("https://www.fotolip.com/wp-content/uploads/2017/03/metal-texture.jpg")
+  position: absolute
+  border-radius: 50px
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  
+#infographic-img
+  position: absolute
+  top: 0
+  left: 0
+  margin: 0
+  padding: 0
+  opacity: 0.3
+  border-radius: 50px
+  height: 100%
+  width: 100%
+  
+#References
+  display: flex
+  flex-direction: column
+  align-items: center
